@@ -6,23 +6,23 @@ int main() {
     cout << "Enter a number: ";
     cin >> num;
 
-    // Negative numbers kabhi palindrome nahi ho sakte
+    // Negative numbers cannot be palindromes
     if (num < 0) {
         cout << num << " is NOT a palindrome.\n";
-        return 0; // Program ko yahan khatam kar do
+        return 0; // Terminate the program early
     }
 
-    int originalNum = num; // Original number ko save kar liya
-    long long reversedNum = 0; // Reverse number store karne ke liye
+    int originalNum = num;       // Store the original number for final comparison
+    long long reversedNum = 0;   // Variable to store the reversed number safely
 
-    // Number ko ulta (reverse) karne ka simple loop
+    // Loop to reverse the digits of the number
     while (num > 0) {
-        int lastDigit = num % 10;                     // Sabse aakhri digit nikala
-        reversedNum = (reversedNum * 10) + lastDigit; // Us digit ko reverse mein add kiya
-        num = num / 10;                               // Aakhri digit ko number se hata diya
+        int lastDigit = num % 10;                     // Extract the last digit
+        reversedNum = (reversedNum * 10) + lastDigit; // Append the digit to the reversed number
+        num = num / 10;                               // Remove the last digit from the number
     }
 
-    // Check agar ulta kiya hua number original ke barabar hai
+    // Check if the original number matches the reversed number
     if (originalNum == reversedNum) {
         cout << originalNum << " is a palindrome.\n";
     } else {
